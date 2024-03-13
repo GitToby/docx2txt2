@@ -1,6 +1,9 @@
 name: Python Matrix Tests
 
 on: [ push, pull_request ]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -8,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [ 3.8, 3.9, 3.10, 3.11, 3.12 ]
+        python-version: [ "3.8", "3.9", "3.10", "3.11", "3.12" ]
 
     steps:
       - uses: actions/checkout@v4
