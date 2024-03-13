@@ -1,7 +1,7 @@
 [project]
 name = "docx2txt2"
 version = "0.1.0"
-description = "Parse .docx files to strings in pure python. A follow up to docx3txt"
+description = "Parse .docx files to strings in pure python. A follow up to docx2txt."
 authors = [
     {name = "Toby Devlin", email = "toby@tobydevlin.com"},
 ]
