@@ -26,3 +26,4 @@ jobs:
       - run: ruff src
       - run: mypy src
       - run: pytest --cov src
+      - run: python -m build

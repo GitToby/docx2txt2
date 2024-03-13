@@ -1,7 +1,7 @@
 [project]
 name = "docx2txt2"
 version = "0.1.0"
-description = "A Follow up for pure text extraction from a .docx"
+description = "Parse .docx files to strings in pure python. A follow up to docx3txt"
 authors = [
     {name = "Toby Devlin", email = "toby@tobydevlin.com"},
 ]
@@ -20,6 +20,7 @@ dev = [
     "pre-commit>=3.5.0",
     "docx2txt>=0.8",
     "pytest-benchmark>=4.0.0",
+    "build>=1.1.1",
 ]
 
 [build-system]
