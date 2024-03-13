@@ -48,13 +48,16 @@ text3 = docx2txt2.extract_text(bytes_io)
 image_paths3 = docx2txt2.extract_images(bytes_io, "path/to/images/out")
 ```
 
-We also support the `process` method as the original docx2txt exposed.
+We also support the `process` method as the [original docx2txt exposed](https://github.com/ankushshah89/python-docx2txt?tab=readme-ov-file#how-to-run).
 
 ```python
 import docx2txt2
 
-# Image output paths are discarded in this function
+text = docx2txt2.process("path/to/my.docx")
+
+# Image output paths are discarded in this example
 text = docx2txt2.process("path/to/my.docx", "path/to/images/out")
+
 ```
 
 ## Compatability & Motivation
