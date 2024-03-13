@@ -77,7 +77,9 @@ def extract_images(
         filtered_files = (
             _file
             for _file in zip_.filelist
-            if _file.filename.endswith((".jpg", ".jpeg", ".png", ".bmp"))
+            if _file.filename.endswith(
+                (".jpg", ".jpeg", ".png", ".bmp", ".gif", ".avif", ".svg")
+            )
         )
 
         for file in filtered_files:
