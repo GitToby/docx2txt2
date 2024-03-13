@@ -12,7 +12,7 @@ My personal replacement for [docx2txt](https://github.com/ankushshah89/python-do
 It's intended to be very simple and provide some utilities to match the functionality of the original lib.
 
 Also see:
-  - [pptx2txt2](https://github.com/GitToby/pptx2txt2) for docx conversion
+* [pptx2txt2](https://github.com/GitToby/pptx2txt2) for docx conversion
 
 ## Usage
 
