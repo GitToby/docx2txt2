@@ -48,6 +48,15 @@ text3 = docx2txt2.extract_text(bytes_io)
 image_paths3 = docx2txt2.extract_images(bytes_io, "path/to/images/out")
 ```
 
+We also support the `process` method as the original docx2txt exposed.
+
+```python
+import docx2txt2
+
+# Image output paths are discarded in this function
+text = docx2txt2.process("path/to/my.docx", "path/to/images/out")
+```
+
 ## Compatability & Motivation
 
 docx2txt2 provides a superset of all data returned by docx2txt with some caveats (below), so the below is true:
