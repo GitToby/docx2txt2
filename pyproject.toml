@@ -2,13 +2,32 @@
 name = "docx2txt2"
 dynamic = ["version"]
 description = "Extract text from .docx and .odt files to strings in pure python."
+keywords = ["word", 'docx', "odt", 'extract', 'text', 'images']
+requires-python = ">=3.8"
+readme = "README.md"
+license = { file = "LICENSE.txt" }
 authors = [
     { name = "Toby Devlin", email = "toby@tobydevlin.com" },
 ]
+maintainers = [
+    { name = "Toby Devlin", email = "toby@tobydevlin.com" },
+]
 
-requires-python = ">=3.8"
-readme = "README.md"
-license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Repository = "https://github.com/GitToby/docx2txt2.git"
+"Bug Tracker" = "https://github.com/GitToby/docx2txt2/issues"
 
 [project.optional-dependencies]
 dev = [
