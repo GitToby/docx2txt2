@@ -2,17 +2,23 @@ import glob
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+import docx2txt2
 import pytest
 from docx2txt import docx2txt  # type: ignore
 
-import docx2txt2
-
 RESOURCES_DIR = Path(__file__).parent / "resources"
+
+test_paths = [RESOURCES_DIR / "example_1.docx", RESOURCES_DIR / "example_1.odt"]
 
 
 @pytest.fixture
 def docx_path():
-    return RESOURCES_DIR / "example_1.docx"
+    return test_paths[0]
+
+
+@pytest.fixture
+def odt_path():
+    return test_paths[1]
 
 
 def test_example_1_extract_text(docx_path):
@@ -47,11 +53,24 @@ def test_example_1_extract_text(docx_path):
     assert "There is even an image." in text
 
 
-def test_example_1_extract_images(docx_path):
-    with TemporaryDirectory() as tempdir:
-        images = docx2txt2.extract_images(docx_path, tempdir)
+def test_example_1_odt_extract_text(docx_path, odt_path):
+    text_odt = docx2txt2.extract_text(odt_path)
+    text_docx = docx2txt2.extract_text(docx_path)
+    assert text_odt
 
-        assert len(images) == 1
+    assert text_docx == text_docx
+
+
+@pytest.mark.parametrize("path", test_paths, ids=str)
+def test_example_1_extract_images(path):
+    with TemporaryDirectory() as tempdir:
+        images = docx2txt2.extract_images(path, tempdir)
+
+        if ".odt" in str(path):
+            # .odt files have a thumbnail content
+            assert len(images) == 2
+        else:
+            assert len(images) == 1
         assert tempdir in str(images[0])
 
 

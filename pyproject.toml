@@ -1,7 +1,7 @@
 [project]
 name = "docx2txt2"
 dynamic = ["version"]
-description = "Parse .docx files to strings in pure python. A follow up to docx2txt."
+description = "Extract text from .docx and .odt files to strings in pure python."
 authors = [
     { name = "Toby Devlin", email = "toby@tobydevlin.com" },
 ]

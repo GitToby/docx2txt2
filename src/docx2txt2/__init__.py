@@ -24,14 +24,18 @@ def extract_text(docx_path: IO[Any] | os.PathLike[Any] | str) -> str:
     text_parts: list[str] = []
 
     with zipfile.ZipFile(docx_path, mode="r") as zip_:
-        # These files where the ones considered in the original docx2txt
-        # https://github.com/ankushshah89/python-docx2txt/blob/master/docx2txt/docx2txt.py#L87
         namelist = zip_.namelist()
+
+        # These files where the ones considered in the original docx2txt for docx parsing
+        # https://github.com/ankushshah89/python-docx2txt/blob/master/docx2txt/docx2txt.py#L87
+        content_files = (
+            f for f in namelist if f in ("word/document.xml", "content.xml")
+        )
         header_files = (f for f in namelist if "header" in f)
         footer_files = (f for f in namelist if "footer" in f)
 
         for file in itertools.chain(
-            sorted(header_files), ["word/document.xml"], sorted(footer_files)
+            sorted(header_files), content_files, sorted(footer_files)
         ):
             data = zip_.read(file)
             root = XML(data)

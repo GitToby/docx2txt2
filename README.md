@@ -11,8 +11,6 @@ My personal replacement for [docx2txt](https://github.com/ankushshah89/python-do
 
 It's intended to be very simple and provide some utilities to match the functionality of the original lib.
 
-Also see:
-* [pptx2txt2](https://github.com/GitToby/pptx2txt2) for docx conversion
 
 ## Usage
 
@@ -103,3 +101,7 @@ test_benchmark_docx2txt      3.0235 (1.97)     10.1797 (1.18)     3.1365 (1.95) 
 ```
 
 Disclaimer: More thorough benchmarking could be conducted. This is a faster lib in general but I haven't tested edge cases.
+
+
+### Also see:
+*  [pptx2txt2](https://github.com/GitToby/pptx2txt2) for pptx/odp conversion
