@@ -1,4 +1,10 @@
 # docx2txt2
+[![codecov](https://codecov.io/gh/GitToby/docx2txt2/graph/badge.svg?token=12KF8ARYVZ)](https://codecov.io/gh/GitToby/docx2txt2)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/GitToby/docx2txt2/lint-and-test.yaml)
+![GitHub file size in bytes](https://img.shields.io/github/size/GitToby/docx2txt2/src%2Fdocx2txt2%2F__init__.py)
+![PyPI - License](https://img.shields.io/pypi/l/docx2txt2)
+![PyPI - Version](https://img.shields.io/pypi/v/docx2txt2)
+![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FGitToby%2Fdocx2txt2%2Fmaster%2Fpyproject.toml)
 
 My personal replacement for [docx2txt](https://github.com/ankushshah89/python-docx2txt).
 

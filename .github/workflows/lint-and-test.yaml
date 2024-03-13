@@ -26,4 +26,10 @@ jobs:
       - run: ruff src
       - run: mypy src
       - run: pytest --cov src
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: GitToby/docx2txt2
+
       - run: python -m build
