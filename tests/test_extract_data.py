@@ -60,7 +60,7 @@ def test_example_1_extract_images_bad_dir(docx_path):
         docx2txt2.extract_images(docx_path, "/non/existent/dir")
 
 
-def test_docx2txt_compatability_text(docx_path):
+def test_docx2txt_compatability(docx_path):
     with TemporaryDirectory() as tempdir1:
         docx2txt2_res = docx2txt2.process(docx_path, tempdir1)
         glob_str_1 = str(Path(tempdir1) / "*")
@@ -70,6 +70,11 @@ def test_docx2txt_compatability_text(docx_path):
         docx2txt_res = docx2txt.process(docx_path, tempdir2)
         glob_str_2 = str(Path(tempdir2) / "*")
         assert len(glob.glob(glob_str_2)) == 1
+
+    # general case
+    orig_content = docx2txt_res.split()
+    new_content = docx2txt2_res.split()
+    assert all(orig in new_content for orig in orig_content)
 
     # We maintain PAGE in header and footer blocks
     docx2txt2_res = docx2txt2_res.replace("PAGE", "")

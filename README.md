@@ -17,27 +17,47 @@ Use with any [`PathLike`](https://docs.python.org/3/library/os.html#os.PathLike)
 ```python
 import io
 from pathlib import Path
-from docx2txt2 import extract_text
+import docx2txt2
 
 # path
-text = extract_text("path/to/my.docx")
+text = docx2txt2.extract_text("path/to/my.docx")
+image_paths = docx2txt2.extract_images("path/to/my.docx", "path/to/images/out")
 
-# actual Path
+# actual Paths
 docx_path = Path(__file__).parent / "my.docx"
-text2 = extract_text(docx_path)
+image_out = Path(__file__).parent / "my" / "images"
+image_out.mkdir(parents=True)
 
-# bytestream
+text2 = docx2txt2.extract_text(docx_path)
+image_paths2 = docx2txt2.extract_images(docx_path, image_out)
+
+# bytestreams
 docx_bytes = b"..."
 bytes_io = io.BytesIO(docx_bytes)
-text3 = extract_text(bytes_io)
+text3 = docx2txt2.extract_text(bytes_io)
+image_paths3 = docx2txt2.extract_images(bytes_io, "path/to/images/out")
 ```
 
 ## Compatability & Motivation
 
+docx2txt2 provides a superset of all data returned by docx2txt with some caveats (below), so the below is true:
+
+```python
+import docx2txt
+
+import docx2txt2
+
+orig_content = docx2txt.process("my/file.docx").split()
+new_content = docx2txt2.process("my/file.docx").split()
+
+assert all(orig in new_content for orig in orig_content)
+```
+_This is a test in `test_extract_data.test_docx2txt_compatability`_
+
 Motivations for rewrite:
 
 - **Speed**, I have lots of word docs to process and I saw some efficiency gains over the original lib.
-- **Formatting**, I didn't want to do whitespace removal for every run; this one doesn't.
+- **Formatting**, I didn't want to do whitespace removal for every run; this preformats output to only include spaces.
 
 Compatability & Caveats
 
