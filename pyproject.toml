@@ -1,14 +1,14 @@
 [project]
 name = "docx2txt2"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Parse .docx files to strings in pure python. A follow up to docx2txt."
 authors = [
-    {name = "Toby Devlin", email = "toby@tobydevlin.com"},
+    { name = "Toby Devlin", email = "toby@tobydevlin.com" },
 ]
 
 requires-python = ">=3.8"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [project.optional-dependencies]
 dev = [
@@ -21,11 +21,18 @@ dev = [
     "docx2txt>=0.8",
     "pytest-benchmark>=4.0.0",
     "build>=1.1.1",
+    "setuptools-scm>=8.0.4",
 ]
 
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = [
+    "setuptools>=61",
+    "setuptools-scm>=8.0",
+    "wheel"
+]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
 
 [tool.pdm]
 distribution = true
