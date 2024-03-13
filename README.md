@@ -1,5 +1,7 @@
 # docx2txt2
 
+> Extract text from .docx and .odt files to strings in pure python.
+
 [![codecov](https://codecov.io/gh/GitToby/docx2txt2/graph/badge.svg?token=12KF8ARYVZ)](https://codecov.io/gh/GitToby/docx2txt2)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/GitToby/docx2txt2/lint-and-test.yaml)](https://github.com/GitToby/docx2txt2/actions/workflows/lint-and-test.yaml)
 [![GitHub file size in bytes](https://img.shields.io/github/size/GitToby/docx2txt2/src%2Fdocx2txt2%2F__init__.py)](https://github.com/GitToby/docx2txt2/blob/master/src/docx2txt2/__init__.py)
@@ -14,7 +16,7 @@ It's intended to be very simple and provide some utilities to match the function
 
 ## Usage
 
-Install with your fave package manager (anything that pulls from pypi will work. pip, poetry, pdm, etx)
+Install with your fave package manager (anything that pulls from pypi will work. pip, poetry, pdm, etc)
 
 ```
 pip install docx2txt2
@@ -63,15 +65,17 @@ assert all(orig in new_content for orig in orig_content)
 
 _This is a test in `test_extract_data.test_docx2txt_compatability`_
 
-Motivations for rewrite:
-
-- **Speed**, I have lots of word docs to process and I saw some efficiency gains over the original lib.
-- **Formatting**, I didn't want to do whitespace removal for every run; this preformats output to only include spaces.
 
 Compatability & Caveats
 
 - Doesn't preserve whitespace or styling like the original; new pages, tabs and the like are now just spaces.
-- headers and footers contain "PAGE" where there would be a number, unlike the original which removed them
+- headers and footers contain "PAGE" where there would be a page number, unlike the original which removed them.
+
+
+Motivations for rewrite:
+
+- **Speed**, I have lots of word docs to process and I saw some efficiency gains over the original lib.
+- **Formatting**, I didn't want to do whitespace removal for every run; this preformats output to only include spaces.
 
 ## Benchmarks
 
