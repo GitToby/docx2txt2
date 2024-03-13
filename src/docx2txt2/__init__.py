@@ -40,8 +40,10 @@ def extract_text(docx_path: IO[Any] | os.PathLike[Any] | str) -> str:
     # Some parts may end up with multiple spaces; we just brute a replacement to 1 space to keep formatting nice
     # question, should we allow different join patterns in the api?
     multi_space_join = " ".join(text_parts)
-    single_space_join = " ".join(multi_space_join.split()).replace(" .", ".")
-    return single_space_join
+    content_ = " ".join(multi_space_join.split())
+    for char in (".", ",", "?"):
+        content_ = content_.replace(f" {char}", char)
+    return content_
 
 
 def extract_images(
