@@ -1,4 +1,4 @@
-name: Python Matrix
+name: Python Matrix Tests
 
 on: [ push, pull_request ]
 
