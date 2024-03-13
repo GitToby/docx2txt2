@@ -11,6 +11,9 @@ My personal replacement for [docx2txt](https://github.com/ankushshah89/python-do
 
 It's intended to be very simple and provide some utilities to match the functionality of the original lib.
 
+Also see:
+    - [pptxx2txt2](https://github.com/GitToby/pptx2txt2) for docx conversion
+
 ## Usage
 
 Install with your fave package manager (anything that pulls from pypi will work. pip, poetry, pdm, etx)
